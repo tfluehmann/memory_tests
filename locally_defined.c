@@ -10,6 +10,7 @@ void dellocate(int **a);
 
 int main() {
   int **a;
+  printf("size of int %lu bytes\n", sizeof(int));
   a = allocate(a);
   wait_for_seconds();
   dellocate(a);
