@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <time.h>
-#include <math.h>
 #include <stdlib.h>
 #define max 5000
 #define waittime 10 
