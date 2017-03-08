@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #define max 5000
 #define waittime 10 
+#define clock_factor 1000000
 
 void wait_for_seconds();
 int ** allocate(int **a);
@@ -41,13 +42,11 @@ int ** allocate(int **a){
 }
 
 void wait_for_seconds(){
-  int sec = 0; // seconds
-  int counter = 0;
+  int sec = 0;
   clock_t before = clock();
   printf("wait for %d seconds \n", waittime);
   while(sec < waittime){
     clock_t diff = clock()-before;
-    counter++;
-    sec = diff / 1000000;
+    sec = diff / clock_factor;
   }
 }
