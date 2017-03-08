@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "util.h"
 #define max 5000
 
 int a[max][max];
@@ -13,5 +14,6 @@ int main() {
        a[i][j] = j;
   }
   printf("Last element %d\n\n", a[i-1][j-1]);
-  while(1){}
+  wait_for_seconds();
+  printf("finito\n");
 }

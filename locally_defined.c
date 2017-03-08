@@ -1,11 +1,8 @@
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
+#include "util.h"
 #define max 5000
-#define waittime 10 
-#define clock_factor 1000000
 
-void wait_for_seconds();
 int ** allocate(int **a);
 void dellocate(int **a);
 
@@ -39,14 +36,4 @@ int ** allocate(int **a){
   }
   printf("Last element %d\n\n", a[i-1][j-1]);
   return a;
-}
-
-void wait_for_seconds(){
-  int sec = 0;
-  clock_t before = clock();
-  printf("wait for %d seconds \n", waittime);
-  while(sec < waittime){
-    clock_t diff = clock()-before;
-    sec = diff / clock_factor;
-  }
 }
