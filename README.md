@@ -5,5 +5,5 @@
 
 ## ENV variables
 
-- MAX_MEMORY (Integer, MB)
-- WAITTIME (Integer, seconds)
+- MAX_MEMORY (Integer, MB) - Default 5000 * int size
+- WAITTIME (Integer, seconds) - Default 1 second
