@@ -41,7 +41,11 @@ int ** allocate(int **a){
 
 int max() {
   char *val = getenv("MAX_MEMORY");
-  int x;
-  sscanf(val, "%d", &x);
-  return x;
+  if(val == NULL) {
+    return 5000;
+  } else {
+    int x;
+    sscanf(val, "%d", &x);
+    return x;
+  }
 }
