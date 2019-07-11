@@ -16,7 +16,12 @@ void wait_for_seconds(){
 }
 
 int waittime() {
-  int x;
-  sscanf(getenv("WAITTIME"), "%d", &x);
-  return x;
+  char *str = getenv("WAITTIME");
+  if(str == NULL) {
+    return 1;
+  } else {
+    int x;
+    sscanf(getenv("WAITTIME"), "%d", &x);
+    return x;
+  }
 }
