@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "util.h"
-#define max 5000
+//#define max 5000
 
 int ** allocate(int **a);
 void dellocate(int **a);
+int max();
 
 int main() {
   int **a;
@@ -17,7 +18,7 @@ int main() {
 }
 
 void dellocate(int **a){
-  for(int i = 0; i < max; i++)
+  for(int i = 0; i < max(); i++)
     free(a[i]);
   free(a);
   printf("freed memory\n");
@@ -26,14 +27,21 @@ void dellocate(int **a){
 int ** allocate(int **a){
   int i, j;
 
-  a=(int **) malloc(max * sizeof(int *));
-  for(i=0;i<max;i++)
-    a[i]=(int *) malloc(max * sizeof(int));
+  a=(int **) malloc(max() * sizeof(int *));
+  for(i=0; i < max(); i++)
+    a[i]=(int *) malloc(max() * sizeof(int));
 
-  for(i = 0; i < max; i++){
-    for(j = 0; j < max; j++)
+  for(i = 0; i < max(); i++){
+    for(j = 0; j < max(); j++)
        a[i][j] = j;
   }
   printf("Last element %d\n\n", a[i-1][j-1]);
   return a;
+}
+
+int max() {
+  char *val = getenv("MAX_MEMORY");
+  int x;
+  sscanf(val, "%d", &x);
+  return x;
 }
